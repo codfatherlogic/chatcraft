@@ -12,7 +12,8 @@
     "dist": "npm run build && electron-builder",
     "dist-mac": "npm run build && electron-builder --mac",
     "dist-win": "npm run build && electron-builder --win",
-    "dist-all": "npm run build && electron-builder --mac --win",
+    "dist-all": "npm run build && electron-builder --mac --win --linux",
+    "dist-linux": "npm run build && electron-builder --linux",
     "pack": "npm run build && electron-builder --dir"
   },
   "keywords": [
@@ -22,7 +23,10 @@
     "grammar",
     "chat"
   ],
-  "author": "Your Name",
+  "author": {
+    "name": "ChatCraft Team",
+    "email": "contact@chatcraft.app"
+  },
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2",
