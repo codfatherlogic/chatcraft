@@ -1,0 +1,112 @@
+{
+  "name": "chatcraft-electron",
+  "version": "1.0.0",
+  "description": "AI-powered chat enhancement desktop app",
+  "main": "public/electron.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "concurrently \"npm run dev-react\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev-react": "react-scripts start",
+    "build": "react-scripts build",
+    "build-electron": "electron-builder",
+    "dist": "npm run build && electron-builder",
+    "dist-mac": "npm run build && electron-builder --mac",
+    "dist-win": "npm run build && electron-builder --win",
+    "dist-all": "npm run build && electron-builder --mac --win",
+    "pack": "npm run build && electron-builder --dir"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "openai",
+    "grammar",
+    "chat"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "wait-on": "^7.2.0"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "electron-is-dev": "^3.0.1",
+    "electron-store": "^8.2.0",
+    "openai": "^4.20.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "homepage": "./",
+  "build": {
+    "appId": "com.chatcraft.app",
+    "productName": "ChatCraft",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "public/electron.js",
+      "src/preload.js"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "zip",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        },
+        {
+          "target": "zip",
+          "arch": ["x64", "ia32"]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
