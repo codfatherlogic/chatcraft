@@ -175,7 +175,6 @@
     "flatted": "^3.4.2",
     "underscore": "^1.13.8",
     "rollup": "^2.80.0",
-    "ajv": "^8.18.0",
     "jsonpath": "^1.3.0",
     "webpack": "^5.104.1",
     "nth-check": "^2.0.1"
